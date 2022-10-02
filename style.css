@@ -1,0 +1,239 @@
+:root {
+  --color-primary: hsl(183, 100%, 15%);
+  --color-secondary: hsl(172, 67%, 45%);
+  --color-tertiary: hsl(184, 14%, 56%);
+  --color-dark: hsl(186, 14%, 43%);
+  --color-light: hsl(189, 41%, 97%);
+  --background-color: hsl(185, 41%, 84%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  background-color: var(--background-color);
+  height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(376px, 865px);
+  gap: 3rem;
+  justify-content: center;
+  align-content: space-between;
+}
+
+header {
+  padding-top: 4rem;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+}
+
+main {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2rem;
+  padding: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+label {
+  display: block;
+  color: var(--color-dark);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+  width: 100%;
+  text-align: right;
+  border: none;
+  padding: 0.15rem 0.7rem 0.15rem 2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 24px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+input[type='number']:focus,
+#custom:focus {
+  outline-color: var(--color-secondary);
+}
+
+#bill {
+  background: url(images/icon-dollar.svg) no-repeat 0.7rem 50%;
+  background-color: var(--color-light);
+}
+
+#custom {
+  background-color: var(--color-light);
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 20px;
+  flex: 1 0 auto;
+}
+
+#custom::placeholder {
+  font-size: 20px;
+}
+
+#people {
+  background: url(images/icon-person.svg) no-repeat 0.7rem 50%;
+  background-color: var(--color-light);
+}
+
+::placeholder {
+  color: var(--color-tertiary);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.btn-tip {
+  flex: 1 0 auto;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  margin-bottom: 0;
+  transition: ease-out 0.4s;
+  box-shadow: inset 0 0 0 0 var(--color-secondary);
+}
+
+.btn-tip,
+#custom {
+  width: calc(50% - 0.7rem);
+}
+
+.btn-tip:hover,
+.btn-tip:active,
+input[type='radio'][name='tip']:checked + .btn-tip {
+  box-shadow: inset 0 -100px 0 0 var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.result-container {
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  padding: 2rem;
+  padding-top: 2.5rem;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 1rem;
+}
+
+.tip-per-person,
+.total-per-person {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.white-text {
+  color: var(--color-light);
+  font-size: 14px;
+}
+
+.dark-text {
+  color: var(--color-dark);
+  font-size: 12px;
+}
+
+.result {
+  color: var(--color-secondary);
+  font-size: 28px;
+  font-weight: 700;
+  justify-self: end;
+}
+
+.btn-reset {
+  align-self: end;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.7rem 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease-out 0.4s;
+  box-shadow: inset 0 0 0 0 var(--background-color);
+}
+
+.btn-reset:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+.error-msg {
+  visibility: hidden;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: 11px;
+  color: rgb(215, 59, 28);
+  font-weight: 400;
+}
+
+@media screen and (min-width: 700px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .btn-reset:hover {
+    box-shadow: inset 0 -100px 0 0 var(--background-color);
+  }
+
+  .btn-tip,
+  #custom {
+    flex: 1 1 30%;
+  }
+
+  .input-container {
+    padding: 1rem;
+  }
+}
