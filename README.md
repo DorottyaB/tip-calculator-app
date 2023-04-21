@@ -21,12 +21,12 @@ Users should be able to:
 
 ### Built with
 
+- TypeScript
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- Javascript
 
 ## Author
 
